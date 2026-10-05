@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Castle Storm</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+color:#fff;
+min-height:100vh;
+background:
+radial-gradient(circle at 50% 15%,rgba(150,0,0,.35),transparent 35%),
+linear-gradient(160deg,#090909,#1a0808 55%,#050505);
+}
+.app{padding:20px 14px 30px;max-width:520px;margin:auto}
+.header{text-align:center;margin-bottom:22px}
+.logo{font-size:55px}
+.title{font-size:25px;font-weight:bold}
+.subtitle{color:#aaa;margin-top:6px}
+.menu{display:grid;gap:11px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+button{
+width:100%;
+border:1px solid rgba(255,80,80,.5);
+border-radius:16px;
+padding:17px 10px;
+font-size:16px;
+font-weight:bold;
+color:#fff;
+background:rgba(210,20,20,.42);
+box-shadow:0 5px 20px rgba(0,0,0,.35);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+transition:.15s;
+}
+button:active{transform:scale(.96);background:rgba(240,30,30,.65)}
+.single{display:block}
+.big{padding:19px}
+.footer{text-align:center;color:#777;font-size:12px;margin-top:22px}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="header">
+<div class="logo">🏰</div>
+<div class="title">Castle Storm</div>
+<div class="subtitle">قلعه‌ات را بساز و فرمانروایی کن</div>
+</div>
+
+<div class="menu">
+
+<button class="single big" onclick="openPage('profile')">👤 پروفایل / موجودی</button>
+
+<div class="row">
+<button onclick="openPage('castle')">🏰 قلعه</button>
+<button onclick="openPage('economy')">💰 اقتصاد</button>
+</div>
+
+<div class="row">
+<button onclick="openPage('collect')">💰 برداشت درآمد</button>
+<button onclick="openPage('resources')">📦 انبار</button>
+</div>
+
+<div class="row">
+<button onclick="openPage('army')">⚔️ ارتش</button>
+<button onclick="openPage('defense')">🛡️ دفاع</button>
+</div>
+
+<div class="row">
+<button onclick="openPage('war')">⚔️ جنگ</button>
+<button onclick="openPage('market')">🛒 بازار</button>
+</div>
+
+<button class="single big" onclick="openPage('missions')">🎯 مأموریت‌ها</button>
+<button class="single big" onclick="openPage('daily')">🎁 جایزه روزانه</button>
+<button class="single big" onclick="openPage('ranking')">🏆 رتبه‌بندی</button>
+<button class="single big" onclick="openPage('help')">ℹ️ راهنما</button>
+
+</div>
+
+<div class="footer">Castle Storm • Kingdom Interface</div>
+</div>
+
+<script>
+const tg=window.Telegram.WebApp;
+tg.ready();
+tg.expand();
+
+function openPage(page){
+tg.sendData(JSON.stringify({
+action:page
+}));
+}
+</script>
+</body>
+</html>
